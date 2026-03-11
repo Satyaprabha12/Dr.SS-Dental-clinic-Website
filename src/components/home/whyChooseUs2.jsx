@@ -192,7 +192,6 @@ export default function WhyChooseUs2() {
       <section ref={sectionRef} className="why2-section">
         <div className="why2-inner">
 
-          {/* Heading */}
           <div ref={headRef} className="why2-head">
             <div className="why2-eyebrow">Our Advantages</div>
             <h2 className="why2-title">Why <em>Choose</em> Us</h2>
@@ -203,10 +202,8 @@ export default function WhyChooseUs2() {
             </div>
           </div>
 
-          {/* Grid */}
           <div className="why2-grid">
 
-            {/* Left: cards 0, 2 */}
             <div className="why2-col">
               {[0, 2].map((i) => (
                 <div key={cards[i].id} ref={(el) => (cardRefs.current[i] = el)} className="why2-card">
@@ -218,7 +215,6 @@ export default function WhyChooseUs2() {
               ))}
             </div>
 
-            {/* Center */}
             <div ref={centerRef} className="why2-center">
               <div className="why2-center-wrap">
                 <div className="why2-ring-outer">
@@ -232,7 +228,6 @@ export default function WhyChooseUs2() {
               </div>
             </div>
 
-            {/* Right: cards 1, 3 */}
             <div className="why2-col">
               {[1, 3].map((i) => (
                 <div key={cards[i].id} ref={(el) => (cardRefs.current[i] = el)} className="why2-card">

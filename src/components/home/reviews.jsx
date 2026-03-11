@@ -85,7 +85,6 @@ export default function Reviews() {
 
         .rev-inner { max-width: 1280px; margin: 0 auto; position: relative; z-index: 1; }
 
-        /* heading */
         .rev-head {
           text-align: center; margin-bottom: 64px;
           transition: opacity .7s ease, transform .7s ease;
@@ -112,14 +111,12 @@ export default function Reviews() {
         .rev-dl.rev { background: linear-gradient(to left, transparent, ${GOLD}); }
         .rev-dd { width: 5px; height: 5px; background: ${GOLD}; transform: rotate(45deg); flex-shrink: 0; }
 
-        /* swiper wrap */
         .rev-swiper-wrap {
           transition: opacity .7s ease .2s, transform .7s ease .2s;
         }
         .rev-swiper-wrap.hidden  { opacity: 0; transform: translateY(30px); }
         .rev-swiper-wrap.visible { opacity: 1; transform: translateY(0); }
 
-        /* review card */
         .rev-card {
           background: ${INK};
           border: 1px solid rgba(200,169,106,0.1);
@@ -139,7 +136,6 @@ export default function Reviews() {
         .rev-card:hover { transform: translateY(-5px); border-color: rgba(200,169,106,0.35); }
         .rev-card:hover::before { transform: translateY(0); }
 
-        /* gold bottom bar */
         .rev-card::after {
           content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 1px;
           background: linear-gradient(to right, transparent, ${GOLD}, transparent);
@@ -147,7 +143,6 @@ export default function Reviews() {
         }
         .rev-card:hover::after { transform: scaleX(1); }
 
-        /* quote mark */
         .rev-quote {
           font-family: 'Playfair Display', serif;
           font-size: 64px; line-height: 0.6;
@@ -156,7 +151,6 @@ export default function Reviews() {
           font-weight: 300;
         }
 
-        /* avatar */
         .rev-avatar {
           width: 42px; height: 42px; border-radius: 50%;
           border: 1px solid rgba(200,169,106,0.25);
@@ -166,7 +160,6 @@ export default function Reviews() {
         }
         .rev-avatar svg { width: 22px; height: 22px; color: rgba(200,169,106,0.5); }
 
-        /* name */
         .rev-name {
           font-size: 13px; font-weight: 600; letter-spacing: 0.5px;
           color: ${TEXT}; font-family: 'Raleway', sans-serif;
@@ -177,7 +170,6 @@ export default function Reviews() {
           margin-top: 3px; font-family: 'Raleway', sans-serif;
         }
 
-        /* review text */
         .rev-text {
           font-size: 12px; font-weight: 300; letter-spacing: 0.3px;
           line-height: 1.9; color: ${MUTED};
@@ -192,7 +184,6 @@ export default function Reviews() {
         }
         .rev-readmore:hover { opacity: 0.75; }
 
-        /* swiper pagination dots → gold */
         .rev-swiper-wrap .swiper-pagination-bullet {
           background: rgba(200,169,106,0.3) !important;
           opacity: 1 !important;
@@ -205,7 +196,6 @@ export default function Reviews() {
         }
         .rev-swiper-wrap .swiper-wrapper { padding-bottom: 44px; }
 
-        /* nav buttons */
         .rev-nav-wrap { display: flex; justify-content: center; gap: 12px; margin-top: 8px; }
         .rev-nav-btn {
           width: 40px; height: 40px;
@@ -222,14 +212,12 @@ export default function Reviews() {
         }
         .rev-nav-btn svg { width: 14px; height: 14px; }
 
-        /* verified badge */
         .rev-verified svg { color: ${GOLD}; width: 13px; height: 13px; flex-shrink: 0; }
       `}</style>
 
       <section ref={sectionRef} className="rev-section">
         <div className="rev-inner">
 
-          {/* Heading */}
           <div className={`rev-head ${visible ? "visible" : "hidden"}`}>
             <div className="rev-eyebrow">Google Reviews</div>
             <h2 className="rev-title">
@@ -240,7 +228,6 @@ export default function Reviews() {
             </div>
           </div>
 
-          {/* Swiper */}
           <div className={`rev-swiper-wrap ${visible ? "visible" : "hidden"}`}>
             <Swiper
               modules={[Autoplay, Pagination, Navigation]}
@@ -257,13 +244,10 @@ export default function Reviews() {
                 <SwiperSlide key={index} style={{ height: "auto" }}>
                   <div className="rev-card">
 
-                    {/* big quote mark */}
                     <span className="rev-quote">"</span>
 
-                    {/* stars */}
                     <StarRating />
 
-                    {/* review text */}
                     <p className="rev-text">
                       {expanded[index] ? review.review : `${review.review.slice(0, 100)}...`}
                       <button className="rev-readmore" onClick={() => toggleExpand(index)}>
@@ -271,10 +255,8 @@ export default function Reviews() {
                       </button>
                     </p>
 
-                    {/* divider */}
                     <div style={{ height: "1px", background: "rgba(200,169,106,0.1)", margin: "18px 0" }} />
 
-                    {/* header: avatar + name */}
                     <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
                       <div className="rev-avatar">
                         <svg fill="currentColor" viewBox="0 0 24 24">
@@ -300,7 +282,7 @@ export default function Reviews() {
               ))}
             </Swiper>
 
-            {/* Nav buttons */}
+            
             <div className="rev-nav-wrap">
               <button className="rev-nav-btn rev-prev" aria-label="Previous">
                 <svg fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">

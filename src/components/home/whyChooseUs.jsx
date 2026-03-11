@@ -1,7 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import ClinicImg from "../../assets/about-clinic.png";
 
-// ── Design tokens (identical to all other components) ────────────────────────
 const GOLD       = "#C8A96A";
 const GOLD_LIGHT = "#E8D5A8";
 const OBSIDIAN   = "#07070D";
@@ -41,7 +40,6 @@ export default function WhyChooseUs() {
           font-family: 'Raleway', sans-serif;
         }
 
-        /* subtle gold grid */
         .why-section::before {
           content: '';
           position: absolute;
@@ -55,7 +53,6 @@ export default function WhyChooseUs() {
           pointer-events: none;
         }
 
-        /* left-side gold glow */
         .why-section::after {
           content: '';
           position: absolute;
@@ -82,7 +79,6 @@ export default function WhyChooseUs() {
           }
         }
 
-        /* ── LEFT CONTENT ── */
         .why-content {
           width: 100%;
           transition: opacity .9s ease, transform .9s ease;
@@ -92,7 +88,6 @@ export default function WhyChooseUs() {
         .why-content.hidden-left  { opacity: 0; transform: translateX(-60px); }
         .why-content.visible-left { opacity: 1; transform: translateX(0); }
 
-        /* award tag */
         .why-tag {
           display: inline-flex;
           align-items: center;
@@ -115,7 +110,6 @@ export default function WhyChooseUs() {
           flex-shrink: 0;
         }
 
-        /* heading block */
         .why-heading-label {
           font-size: 11px;
           font-weight: 500;
@@ -142,7 +136,6 @@ export default function WhyChooseUs() {
           margin-bottom: 36px;
         }
 
-        /* stats row */
         .why-stats {
           display: flex;
           align-items: center;
@@ -173,7 +166,6 @@ export default function WhyChooseUs() {
           font-family: 'Raleway', sans-serif;
         }
 
-        /* info cards */
         .why-cards {
           display: flex;
           flex-direction: column;
@@ -224,7 +216,6 @@ export default function WhyChooseUs() {
           font-family: 'Raleway', sans-serif;
         }
 
-        /* ── RIGHT IMAGE ── */
         .why-image-col {
           width: 100%;
           display: flex;
@@ -242,7 +233,6 @@ export default function WhyChooseUs() {
           max-width: 620px;
         }
 
-        /* gold corner brackets */
         .why-image-wrap::before,
         .why-image-wrap::after {
           content: '';
@@ -271,7 +261,6 @@ export default function WhyChooseUs() {
         }
         .why-image-wrap:hover img { transform: scale(1.02); }
 
-        /* dark vignette */
         .why-image-overlay {
           position: absolute;
           inset: 0;
@@ -279,7 +268,6 @@ export default function WhyChooseUs() {
           pointer-events: none;
         }
 
-        /* bottom floating badges */
         .why-badges {
           position: absolute;
           bottom: 20px;
@@ -320,21 +308,17 @@ export default function WhyChooseUs() {
       <section ref={sectionRef} className="why-section">
         <div className="why-inner">
 
-          {/* ── LEFT: Content ── */}
           <div className={`why-content ${visible ? "visible-left" : "hidden-left"}`}>
 
-            {/* Award tag */}
             <span className="why-tag">
               <span className="why-tag-dot" />
               Award Winning
             </span>
 
-            {/* Heading */}
             <p className="why-heading-label">Excellence in</p>
             <h2 className="why-heading">Dental Care</h2>
             <h3 className="why-subheading">Bangalore's Premier Clinic</h3>
 
-            {/* Stats */}
             <div className="why-stats">
               <div className="why-stat">
                 <div className="why-stat-num">10,000<span style={{ fontSize: "20px" }}>+</span></div>
@@ -346,7 +330,6 @@ export default function WhyChooseUs() {
               </div>
             </div>
 
-            {/* Info Cards */}
             <div className="why-cards">
 
               <div className="why-card">
@@ -376,14 +359,13 @@ export default function WhyChooseUs() {
             </div>
           </div>
 
-          {/* ── RIGHT: Clinic Image ── */}
           <div className={`why-image-col ${visible ? "visible-right" : "hidden-right"}`}>
             <div className="why-image-wrap">
 
               <img src={ClinicImg} alt="Dr. SS Dental Care Clinic" />
               <div className="why-image-overlay" />
 
-              {/* Floating badges */}
+
               <div className="why-badges">
                 <div className="why-badge">
                   <svg fill="currentColor" viewBox="0 0 24 24">

@@ -10,7 +10,6 @@ import Laminates  from "../../assets/Dental-Laminates.jpg";
 import Extraction from "../../assets/extraction.webp";
 import Cosmetic   from "../../assets/cosmetic.webp";
 
-// ── Design tokens ─────────────────────────────────────────────────────────────
 const GOLD       = "#C8A96A";
 const GOLD_LIGHT = "#E8D5A8";
 const OBSIDIAN   = "#07070D";
@@ -81,7 +80,7 @@ export default function Services() {
           font-family: 'Raleway', sans-serif;
         }
 
-        /* gold grid bg */
+
         .srv-section::before {
           content: '';
           position: absolute; inset: 0;
@@ -94,7 +93,7 @@ export default function Services() {
           pointer-events: none;
         }
 
-        /* center glow */
+
         .srv-section::after {
           content: '';
           position: absolute;
@@ -111,7 +110,7 @@ export default function Services() {
           z-index: 1;
         }
 
-        /* ── heading block ── */
+
         .srv-head {
           text-align: center;
           margin-bottom: 64px;
@@ -149,7 +148,6 @@ export default function Services() {
         }
         .srv-title em { font-style: italic; color: ${GOLD}; }
 
-        /* gold diamond divider */
         .srv-divider {
           display: flex;
           align-items: center;
@@ -181,14 +179,14 @@ export default function Services() {
           font-family: 'Raleway', sans-serif;
         }
 
-        /* ── swiper wrapper ── */
+
         .srv-swiper-wrap {
           transition: opacity .7s ease .2s, transform .7s ease .2s;
         }
         .srv-swiper-wrap.hidden  { opacity: 0; transform: translateY(30px); }
         .srv-swiper-wrap.visible { opacity: 1; transform: translateY(0); }
 
-        /* ── service card ── */
+
         .srv-card {
           background: ${CHARCOAL};
           border: 1px solid rgba(200,169,106,0.1);
@@ -202,7 +200,6 @@ export default function Services() {
           transform: translateY(-6px);
         }
 
-        /* gold bottom bar on hover */
         .srv-card::after {
           content: '';
           position: absolute;
@@ -214,7 +211,7 @@ export default function Services() {
         }
         .srv-card:hover::after { transform: scaleX(1); }
 
-        /* image area */
+
         .srv-img-wrap {
           position: relative;
           overflow: hidden;
@@ -229,7 +226,7 @@ export default function Services() {
         }
         .srv-card:hover .srv-img-wrap img { transform: scale(1.07); }
 
-        /* hover overlay */
+
         .srv-img-overlay {
           position: absolute; inset: 0;
           background: rgba(7,7,13,0.82);
@@ -255,7 +252,7 @@ export default function Services() {
         }
         .srv-card:hover .srv-img-overlay p { transform: translateY(0); }
 
-        /* gold corner on image */
+
         .srv-img-wrap::before {
           content: '';
           position: absolute;
@@ -267,7 +264,7 @@ export default function Services() {
           pointer-events: none;
         }
 
-        /* card content */
+
         .srv-card-body {
           padding: 20px 20px 24px;
           display: flex;
@@ -296,7 +293,6 @@ export default function Services() {
           letter-spacing: 0.5px;
         }
 
-        /* arrow button */
         .srv-arrow-btn {
           width: 40px; height: 40px;
           border: 1px solid rgba(200,169,106,0.3);
@@ -320,14 +316,12 @@ export default function Services() {
           transition: transform .3s;
         }
 
-        /* swiper override — remove default outline */
         .swiper-slide { height: auto; }
       `}</style>
 
       <section ref={sectionRef} className="srv-section">
         <div className="srv-inner">
 
-          {/* ── Heading ── */}
           <div className={`srv-head ${visible ? "visible" : "hidden"}`}>
             <div className="srv-eyebrow">We Are Specialized In</div>
             <h2 className="srv-title">
@@ -343,7 +337,6 @@ export default function Services() {
             </p>
           </div>
 
-          {/* ── Swiper ── */}
           <div className={`srv-swiper-wrap ${visible ? "visible" : "hidden"}`}>
             <Swiper
               modules={[Autoplay]}
@@ -364,10 +357,9 @@ export default function Services() {
                     onMouseEnter={() => setHovered(index)}
                     onMouseLeave={() => setHovered(null)}
                   >
-                    {/* slide number */}
+
                     <span className="srv-card-num">0{index + 1}</span>
 
-                    {/* image */}
                     <div className="srv-img-wrap">
                       <img src={service.image} alt={service.title} />
                       <div className="srv-img-overlay">
@@ -375,7 +367,6 @@ export default function Services() {
                       </div>
                     </div>
 
-                    {/* content */}
                     <div className="srv-card-body">
                       <h3 className="srv-card-title">{service.title}</h3>
                       <button className="srv-arrow-btn" aria-label={`Learn more about ${service.title}`}>

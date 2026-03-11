@@ -7,7 +7,6 @@ import QualIcon2 from "../../assets/implant-icon.png";
 
 gsap.registerPlugin(ScrollTrigger);
 
-// ── Design tokens (identical to Navbar & Hero) ───────────────────────────────
 const GOLD        = "#C8A96A";
 const GOLD_LIGHT  = "#E8D5A8";
 const OBSIDIAN    = "#07070D";
@@ -32,7 +31,6 @@ export default function AboutDoctor() {
   useEffect(() => {
     const ctx = gsap.context(() => {
 
-      // Decorative vertical line draws down
       gsap.fromTo(lineRef.current,
         { scaleY: 0, transformOrigin: "top center" },
         {
@@ -41,7 +39,6 @@ export default function AboutDoctor() {
         }
       );
 
-      // Image slides in from left
       gsap.fromTo(imageRef.current,
         { x: -80, opacity: 0 },
         {
@@ -50,7 +47,6 @@ export default function AboutDoctor() {
         }
       );
 
-      // Badge pops in
       gsap.fromTo(badgeRef.current,
         { scale: 0, opacity: 0 },
         {
@@ -59,7 +55,6 @@ export default function AboutDoctor() {
         }
       );
 
-      // Right side stagger
       gsap.fromTo(
         [tagRef.current, headingRef.current, dividerRef.current, descRef.current, cardsRef.current, socialsRef.current, btnRef.current],
         { x: 60, opacity: 0 },
@@ -86,7 +81,6 @@ export default function AboutDoctor() {
           font-family: 'Raleway', sans-serif;
         }
 
-        /* subtle background grid */
         .about-section::before {
           content: '';
           position: absolute;
@@ -100,7 +94,6 @@ export default function AboutDoctor() {
           pointer-events: none;
         }
 
-        /* radial gold glow */
         .about-section::after {
           content: '';
           position: absolute;
@@ -128,7 +121,6 @@ export default function AboutDoctor() {
           }
         }
 
-        /* ── LEFT: image side ── */
         .about-image-col {
           position: relative;
           width: 100%;
@@ -150,7 +142,6 @@ export default function AboutDoctor() {
         @media (min-width: 640px)  { .about-image-wrap { width: 400px; } }
         @media (min-width: 1024px) { .about-image-wrap { width: 460px; } }
 
-        /* gold corner brackets */
         .about-image-wrap::before,
         .about-image-wrap::after {
           content: '';
@@ -177,7 +168,6 @@ export default function AboutDoctor() {
           filter: grayscale(15%) contrast(1.05);
         }
 
-        /* image overlay — dark vignette bottom */
         .about-image-overlay {
           position: absolute;
           inset: 0;
@@ -185,7 +175,6 @@ export default function AboutDoctor() {
           pointer-events: none;
         }
 
-        /* gold frame line on left of image */
         .about-image-line {
           position: absolute;
           left: -20px; top: 10%; bottom: 10%;
@@ -193,7 +182,6 @@ export default function AboutDoctor() {
           background: linear-gradient(to bottom, transparent, ${GOLD} 30%, ${GOLD} 70%, transparent);
         }
 
-        /* experience badge */
         .about-badge {
           position: absolute;
           bottom: 20px; right: -16px;
@@ -220,7 +208,6 @@ export default function AboutDoctor() {
           margin-top: 6px;
         }
 
-        /* ── RIGHT: content side ── */
         .about-content-col {
           width: 100%;
           display: flex;
@@ -228,7 +215,6 @@ export default function AboutDoctor() {
         }
         @media (min-width: 1024px) { .about-content-col { width: 55%; } }
 
-        /* eyebrow tag */
         .about-tag {
           display: flex;
           align-items: center;
@@ -248,7 +234,6 @@ export default function AboutDoctor() {
           flex-shrink: 0;
         }
 
-        /* heading */
         .about-heading {
           font-family: 'Playfair Display', serif;
           font-size: clamp(32px, 4vw, 52px);
@@ -262,7 +247,6 @@ export default function AboutDoctor() {
           color: ${GOLD};
         }
 
-        /* gold divider */
         .about-divider {
           display: flex;
           align-items: center;
@@ -281,7 +265,6 @@ export default function AboutDoctor() {
           background: linear-gradient(to right, ${GOLD}, transparent);
         }
 
-        /* description */
         .about-desc {
           font-size: 13px;
           font-weight: 300;
@@ -293,7 +276,6 @@ export default function AboutDoctor() {
           font-family: 'Raleway', sans-serif;
         }
 
-        /* qualification cards */
         .about-cards {
           display: grid;
           grid-template-columns: 1fr;
@@ -351,7 +333,6 @@ export default function AboutDoctor() {
           font-family: 'Raleway', sans-serif;
         }
 
-        /* socials */
         .about-socials {
           display: flex;
           align-items: center;
@@ -380,7 +361,6 @@ export default function AboutDoctor() {
           width: 14px; height: 14px;
         }
 
-        /* CTA button */
         .about-btn {
           display: inline-flex;
           align-items: center;
@@ -419,17 +399,17 @@ export default function AboutDoctor() {
       <section ref={sectionRef} className="about-section">
         <div className="about-inner">
 
-          {/* ── LEFT: Doctor Image ── */}
+          
           <div ref={imageRef} className="about-image-col">
             <div className="about-image-wrap">
 
-              {/* left gold line */}
+              
               <div ref={lineRef} className="about-image-line" />
 
               <img src={DrShahul} alt="Dr. Shahul Hameed Sattar" />
               <div className="about-image-overlay" />
 
-              {/* Experience badge */}
+              
               <div ref={badgeRef} className="about-badge">
                 <div className="about-badge-num">15<span style={{ fontSize: "20px" }}>+</span></div>
                 <div className="about-badge-label">Years of<br />Experience</div>
@@ -438,32 +418,26 @@ export default function AboutDoctor() {
             </div>
           </div>
 
-          {/* ── RIGHT: Content ── */}
           <div className="about-content-col">
 
-            {/* Tag */}
             <p ref={tagRef} className="about-tag">About Dr. Shahul</p>
 
-            {/* Heading */}
             <h2 ref={headingRef} className="about-heading">
               Expert Dental Care from a<br />
               <em>Qualified</em> Professional
             </h2>
 
-            {/* Divider */}
             <div ref={dividerRef} className="about-divider">
               <div className="about-divider-dot" />
               <div className="about-divider-line" />
             </div>
 
-            {/* Description */}
             <p ref={descRef} className="about-desc">
               Dr. Shahul Hameed Sattar is a highly qualified dental professional
               specializing in Prosthodontics and Implantology with extensive
               training from prestigious institutions worldwide.
             </p>
 
-            {/* Qualification Cards */}
             <div ref={cardsRef} className="about-cards">
               <div className="about-card">
                 <img src={QualIcon1} alt="BDS MDS" />
@@ -481,7 +455,7 @@ export default function AboutDoctor() {
               </div>
             </div>
 
-            {/* Social Icons */}
+
             <div ref={socialsRef} className="about-socials">
               <a href="#" className="about-social-btn" aria-label="Facebook">
                 <svg fill="currentColor" viewBox="0 0 24 24">
@@ -508,7 +482,7 @@ export default function AboutDoctor() {
               </a>
             </div>
 
-            {/* Learn More Button */}
+            
             <a ref={btnRef} href="#" className="about-btn">
               <span>
                 Learn More

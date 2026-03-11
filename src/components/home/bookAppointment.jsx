@@ -60,7 +60,6 @@ export default function BookAppointment() {
           font-family: 'Raleway', sans-serif;
         }
 
-        /* grid bg */
         .ba-section::before {
           content: ''; position: absolute; inset: 0;
           background-image:
@@ -72,7 +71,6 @@ export default function BookAppointment() {
           pointer-events: none;
         }
 
-        /* ── Top Banner ── */
         .ba-banner {
           background: ${OBSIDIAN};
           border-bottom: 1px solid rgba(200,169,106,0.1);
@@ -81,7 +79,7 @@ export default function BookAppointment() {
           position: relative;
           overflow: hidden;
         }
-        /* banner gold glow */
+
         .ba-banner::after {
           content: ''; position: absolute;
           top: 0; left: 50%; transform: translateX(-50%);
@@ -108,7 +106,7 @@ export default function BookAppointment() {
         }
         .ba-banner-title em { font-style: italic; color: ${GOLD}; }
 
-        /* ── Card ── */
+        
         .ba-card {
           margin: 0 4vw;
           background: ${INK};
@@ -134,7 +132,7 @@ export default function BookAppointment() {
         }
         @media (min-width: 1024px) { .ba-card-inner { flex-direction: row; gap: 64px; } }
 
-        /* ── Left: image ── */
+        
         .ba-img-col {
           width: 100%;
           transition: opacity .9s ease .3s, transform .9s ease .3s;
@@ -146,7 +144,7 @@ export default function BookAppointment() {
         .ba-img-wrap {
           position: relative;
         }
-        /* gold corner brackets on image */
+      
         .ba-img-wrap::before {
           content: ''; position: absolute;
           top: -8px; left: -8px;
@@ -171,7 +169,7 @@ export default function BookAppointment() {
           pointer-events: none;
         }
 
-        /* ── Right: form ── */
+        
         .ba-form-col {
           width: 100%;
           transition: opacity .9s ease .4s, transform .9s ease .4s;
@@ -208,7 +206,7 @@ export default function BookAppointment() {
         .ba-submit:hover { transform: translateY(-2px); }
         .ba-submit svg { width: 13px; height: 13px; }
 
-        /* heading transition */
+        
         .ba-banner-head {
           transition: opacity .7s ease, transform .7s ease;
         }
@@ -218,7 +216,7 @@ export default function BookAppointment() {
 
       <section ref={sectionRef} className="ba-section">
 
-        {/* ── Top Banner ── */}
+        
         <div className="ba-banner">
           <div className={`ba-banner-head ${visible ? "visible" : "hidden"}`}>
             <div className="ba-banner-eyebrow">Book Appointment</div>
@@ -228,11 +226,11 @@ export default function BookAppointment() {
           </div>
         </div>
 
-        {/* ── Card ── */}
+       
         <div className="ba-card">
           <div className="ba-card-inner">
 
-            {/* Left: image */}
+            
             <div className={`ba-img-col ${visible ? "visible" : "hidden"}`}>
               <div className="ba-img-wrap">
                 <img src={ClinicPhoto} alt="Dr. SS Dental Care Clinic" />
@@ -240,7 +238,7 @@ export default function BookAppointment() {
               </div>
             </div>
 
-            {/* Right: form */}
+            
             <div className={`ba-form-col ${visible ? "visible" : "hidden"}`}>
 
               <p className="ba-phone-line">

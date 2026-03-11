@@ -215,7 +215,6 @@ export default function Footer() {
 
       <div>
 
-        {/* ── Gold Marquee ── */}
         <div className="ft-marquee-wrap">
           <div className="ft-marquee-track">
             {[...marqueeItems, ...marqueeItems, ...marqueeItems, ...marqueeItems].map((item, i) => (
@@ -227,11 +226,9 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* ── Footer Body ── */}
         <footer className="ft-body">
           <div className="ft-grid">
 
-            {/* Col 1: Logo + Hours */}
             <div>
               <img src={Logo} alt="Dr. SS Dental Care" className="ft-logo" />
               <div className="ft-hours-label">Clinic Hours</div>
@@ -242,7 +239,6 @@ export default function Footer() {
               </div>
             </div>
 
-            {/* Col 2: Quick Links */}
             <div>
               <h4 className="ft-col-title">Quick Links</h4>
               <div className="ft-col-divider" />
@@ -258,7 +254,6 @@ export default function Footer() {
               </ul>
             </div>
 
-            {/* Col 3: Services */}
             <div>
               <h4 className="ft-col-title">Services</h4>
               <div className="ft-col-divider" />
@@ -274,12 +269,10 @@ export default function Footer() {
               </ul>
             </div>
 
-            {/* Col 4: Contact */}
             <div>
               <h4 className="ft-col-title">Contact Us</h4>
               <div className="ft-col-divider" />
 
-              {/* Address */}
               <div className="ft-contact-item" style={{ alignItems: "flex-start" }}>
                 <PinIcon />
                 <p className="ft-contact-text">
@@ -287,7 +280,6 @@ export default function Footer() {
                 </p>
               </div>
 
-              {/* Phones */}
               <div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
                 <a href="tel:+918884645500" className="ft-phone-link">
                   <PhoneIcon /> +91 8884645500
@@ -301,14 +293,11 @@ export default function Footer() {
           </div>
         </footer>
 
-        {/* gold line */}
         <div className="ft-gold-line" />
 
-        {/* ── Bottom Bar ── */}
         <div className="ft-bottom">
           <div className="ft-bottom-inner">
 
-            {/* Socials */}
             <div className="ft-socials">
               <a href="#" className="ft-social-btn" aria-label="Facebook">
                 <svg fill="currentColor" viewBox="0 0 24 24">
@@ -329,7 +318,6 @@ export default function Footer() {
               </a>
             </div>
 
-            {/* Copyright */}
             <p className="ft-copyright">
               © 2025{" "}
               <a href="#">Dr. SS Dental Care &amp; Advanced Dental Implant Center</a>

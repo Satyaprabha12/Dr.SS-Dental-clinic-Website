@@ -1,6 +1,5 @@
 import { useEffect, useRef, useState } from "react";
 
-// ── Design tokens ─────────────────────────────────────────────────────────────
 const GOLD       = "#C8A96A";
 const GOLD_LIGHT = "#E8D5A8";
 const OBSIDIAN   = "#07070D";
@@ -45,7 +44,6 @@ const videos = [
   },
 ];
 
-// ── YouTube play icon SVG ─────────────────────────────────────────────────────
 const YTIcon = () => (
   <svg viewBox="0 0 24 24" fill="currentColor" style={{ width: "14px", height: "14px" }}>
     <path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
@@ -83,7 +81,7 @@ export default function Videos() {
           font-family: 'Raleway', sans-serif;
         }
 
-        /* grid bg */
+
         .vid-section::before {
           content: '';
           position: absolute; inset: 0;
@@ -96,7 +94,7 @@ export default function Videos() {
           pointer-events: none;
         }
 
-        /* top glow */
+
         .vid-section::after {
           content: '';
           position: absolute;
@@ -113,7 +111,6 @@ export default function Videos() {
           z-index: 1;
         }
 
-        /* ── heading ── */
         .vid-head {
           text-align: center;
           margin-bottom: 64px;
@@ -176,7 +173,6 @@ export default function Videos() {
           transform: rotate(45deg);
         }
 
-        /* ── layout ── */
         .vid-body {
           display: flex;
           flex-direction: column;
@@ -190,7 +186,6 @@ export default function Videos() {
           .vid-body { flex-direction: row; align-items: flex-start; }
         }
 
-        /* ── LEFT: main player ── */
         .vid-player-col {
           width: 100%;
         }
@@ -203,7 +198,6 @@ export default function Videos() {
           position: relative;
         }
 
-        /* gold top accent */
         .vid-player-wrap::before {
           content: '';
           position: absolute;
@@ -213,7 +207,6 @@ export default function Videos() {
           z-index: 2;
         }
 
-        /* gold corner bracket */
         .vid-player-wrap::after {
           content: '';
           position: absolute;
@@ -276,7 +269,6 @@ export default function Videos() {
         }
         .vid-yt-link:hover { opacity: .85; transform: translateY(-1px); }
 
-        /* ── RIGHT: video list ── */
         .vid-list-col {
           width: 100%;
         }
@@ -288,7 +280,6 @@ export default function Videos() {
           overflow: hidden;
         }
 
-        /* list header */
         .vid-list-header {
           padding: 16px 20px;
           border-bottom: 1px solid rgba(200,169,106,0.1);
@@ -317,7 +308,6 @@ export default function Videos() {
         .vid-list-scroll::-webkit-scrollbar { width: 3px; }
         .vid-list-scroll::-webkit-scrollbar-thumb { background: rgba(200,169,106,0.2); }
 
-        /* video list item */
         .vid-item {
           display: flex;
           gap: 14px;
@@ -337,7 +327,6 @@ export default function Videos() {
           border-left-color: rgba(200,169,106,0.3);
         }
 
-        /* thumbnail */
         .vid-thumb {
           position: relative;
           flex-shrink: 0;
@@ -355,7 +344,6 @@ export default function Videos() {
         .vid-item:hover .vid-thumb img { transform: scale(1.05); }
         .vid-item.active .vid-thumb img { filter: brightness(1); }
 
-        /* play overlay on thumb */
         .vid-thumb-overlay {
           position: absolute; inset: 0;
           display: flex; align-items: center; justify-content: center;
@@ -382,7 +370,6 @@ export default function Videos() {
         }
         .vid-play-circle svg { width: 10px; height: 10px; margin-left: 2px; }
 
-        /* item text */
         .vid-item-info {
           display: flex;
           flex-direction: column;
@@ -430,7 +417,6 @@ export default function Videos() {
       <section ref={sectionRef} className="vid-section">
         <div className="vid-inner">
 
-          {/* ── Heading ── */}
           <div className={`vid-head ${visible ? "visible" : "hidden"}`}>
             <div className="vid-eyebrow">Featured Content</div>
             <p className="vid-label">Our Videos</p>
@@ -444,14 +430,11 @@ export default function Videos() {
             </div>
           </div>
 
-          {/* ── Content ── */}
           <div className={`vid-body ${visible ? "visible" : "hidden"}`}>
 
-            {/* ── Left: Main Player ── */}
             <div className="vid-player-col">
               <div className="vid-player-wrap">
 
-                {/* iframe */}
                 <div className="vid-iframe-wrap">
                   <iframe
                     key={activeVideo.id}
@@ -462,7 +445,6 @@ export default function Videos() {
                   />
                 </div>
 
-                {/* video info */}
                 <div className="vid-info">
                   <h3 className="vid-info-title">{activeVideo.title}</h3>
                   <p className="vid-info-channel">{activeVideo.channel}</p>
@@ -485,7 +467,6 @@ export default function Videos() {
               </div>
             </div>
 
-            {/* ── Right: Video List ── */}
             <div className="vid-list-col">
               <div className="vid-list-wrap">
 
@@ -500,7 +481,7 @@ export default function Videos() {
                       onMouseEnter={() => setHoverIdx(idx)}
                       onMouseLeave={() => setHoverIdx(null)}
                     >
-                      {/* thumbnail */}
+
                       <div className="vid-thumb">
                         <img
                           src={`https://img.youtube.com/vi/${video.id}/mqdefault.jpg`}
@@ -515,7 +496,6 @@ export default function Videos() {
                         </div>
                       </div>
 
-                      {/* info */}
                       <div className="vid-item-info">
                         <p className="vid-item-title">{video.title}</p>
                         <p className="vid-item-channel">{video.channel}</p>

@@ -31,15 +31,14 @@ const navLinks = [
   { label: "Contact", href: "#" },
 ];
 
-// ── Design tokens ─────────────────────────────────────────────────────────────
+
 const GOLD       = "#C8A96A";
 const GOLD_LIGHT = "#E8D5A8";
 const OBSIDIAN   = "#07070D";
 const TEXT       = "#EAE5D8";
 const MUTED      = "rgba(234,229,216,0.45)";
-const DESKTOP_BP = 1024; // matches Tailwind "lg:"
+const DESKTOP_BP = 1024; 
 
-// ── Reusable SVG icons ────────────────────────────────────────────────────────
 const PhoneIcon = ({ size = 11 }) => (
   <svg width={size} height={size} viewBox="0 0 24 24" fill="none"
     stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -84,7 +83,6 @@ export default function Navbar() {
   const ctaRef       = useRef(null);
   const hamburgerRef = useRef(null);
 
-  // ── Breakpoint listener ───────────────────────────────────────────────────
   useEffect(() => {
     const onResize = () => {
       const desktop = window.innerWidth >= DESKTOP_BP;
@@ -95,14 +93,12 @@ export default function Navbar() {
     return () => window.removeEventListener("resize", onResize);
   }, []);
 
-  // ── Scroll listener ───────────────────────────────────────────────────────
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // ── GSAP entrance ─────────────────────────────────────────────────────────
   useEffect(() => {
     const ctx = gsap.context(() => {
       gsap.fromTo(navRef.current,
@@ -148,9 +144,6 @@ export default function Navbar() {
         * { box-sizing: border-box; }
       `}</style>
 
-      {/* ══════════════════════════════════════════════
-          NAV BAR
-      ══════════════════════════════════════════════ */}
       <nav
         ref={navRef}
         aria-label="Main navigation"
@@ -178,7 +171,6 @@ export default function Navbar() {
         }}
       >
 
-        {/* ── Logo ── */}
         <a
           ref={logoRef}
           href="#"
@@ -228,12 +220,9 @@ export default function Navbar() {
           </div>
         </a>
 
-        {/* ══════════════════════════════
-            DESKTOP LINKS + CTA
-        ══════════════════════════════ */}
         {isDesktop && (
           <>
-            {/* Links */}
+            
             <div ref={linksRef} style={{ display: "flex", alignItems: "center", gap: "2px" }}>
               {navLinks.map((link) => (
                 <div
@@ -265,7 +254,6 @@ export default function Navbar() {
                     )}
                   </a>
 
-                  {/* Dropdown */}
                   {link.dropdown && openDropdown === link.label && (
                     <div style={{
                       position: "absolute", top: "calc(100% + 10px)", left: 0,
@@ -303,7 +291,6 @@ export default function Navbar() {
               ))}
             </div>
 
-            {/* CTA buttons */}
             <div ref={ctaRef} style={{ display: "flex", alignItems: "center", gap: "10px", flexShrink: 0 }}>
               <a
                 href="tel:+91XXXXXXXXXX"
@@ -343,9 +330,6 @@ export default function Navbar() {
           </>
         )}
 
-        {/* ══════════════════════════════
-            MOBILE HAMBURGER BUTTON
-        ══════════════════════════════ */}
         {!isDesktop && (
           <button
             ref={hamburgerRef}
@@ -383,9 +367,6 @@ export default function Navbar() {
         )}
       </nav>
 
-      {/* ══════════════════════════════════════════════
-          MOBILE MENU PANEL (only visible on mobile)
-      ══════════════════════════════════════════════ */}
       {!isDesktop && mobileOpen && (
         <div
           style={{
@@ -404,7 +385,6 @@ export default function Navbar() {
             width: "100%",
           }}
         >
-          {/* Links */}
           {navLinks.map((link) => (
             <div key={link.label}>
               <button
@@ -432,7 +412,6 @@ export default function Navbar() {
                 {link.dropdown && <ChevronIcon open={mobileDropdown === link.label} size={12} />}
               </button>
 
-              {/* Sub-items */}
               {link.dropdown && mobileDropdown === link.label && (
                 <div style={{
                   paddingLeft: "16px", marginLeft: "8px",
@@ -454,7 +433,6 @@ export default function Navbar() {
             </div>
           ))}
 
-          {/* Mobile CTAs */}
           <div style={{ marginTop: "24px", display: "flex", flexDirection: "column", gap: "10px", width: "100%" }}>
             <a href="#" style={{
               display: "flex", alignItems: "center", justifyContent: "center", gap: "8px",

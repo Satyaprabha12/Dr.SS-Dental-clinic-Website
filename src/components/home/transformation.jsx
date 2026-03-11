@@ -58,7 +58,6 @@ export default function Transformation() {
 
         .tf-inner { max-width: 1100px; margin: 0 auto; position: relative; z-index: 1; }
 
-        /* heading */
         .tf-head {
           text-align: center; margin-bottom: 64px;
           transition: opacity .7s ease, transform .7s ease;
@@ -89,11 +88,10 @@ export default function Transformation() {
         .tf-dl.rev { background: linear-gradient(to left, transparent, ${GOLD}); }
         .tf-dd { width: 5px; height: 5px; background: ${GOLD}; transform: rotate(45deg); flex-shrink: 0; }
 
-        /* grid */
+
         .tf-grid { display: grid; grid-template-columns: 1fr; gap: 20px; }
         @media (min-width: 640px) { .tf-grid { grid-template-columns: 1fr 1fr; } }
 
-        /* card */
         .tf-card {
           position: relative; overflow: hidden; cursor: pointer;
           border: 1px solid rgba(200,169,106,0.1);
@@ -106,7 +104,6 @@ export default function Transformation() {
         .tf-card.show { opacity: 1; transform: translateX(0) translateY(0) !important; }
         .tf-card.active.show { transform: translateY(-6px) !important; border-color: rgba(200,169,106,0.45); }
 
-        /* gold corners appear on hover/active */
         .tf-card::before {
           content: ''; position: absolute;
           top: 10px; left: 10px;
@@ -126,7 +123,7 @@ export default function Transformation() {
         .tf-card:hover::before, .tf-card:hover::after,
         .tf-card.active::before, .tf-card.active::after { opacity: 1; }
 
-        /* image */
+
         .tf-img {
           width: 100%; height: 420px;
           object-fit: cover; display: block;
@@ -139,7 +136,6 @@ export default function Transformation() {
           filter: brightness(1) contrast(1.05);
         }
 
-        /* dark vignette overlay */
         .tf-overlay {
           position: absolute; inset: 0;
           background: linear-gradient(to top, rgba(7,7,13,.5) 0%, transparent 50%);
@@ -149,7 +145,7 @@ export default function Transformation() {
         .tf-card:hover .tf-overlay,
         .tf-card.active .tf-overlay { opacity: 0.3; }
 
-        /* card number */
+
         .tf-num {
           position: absolute; top: 14px; right: 14px;
           font-family: 'Playfair Display', serif;
@@ -157,7 +153,6 @@ export default function Transformation() {
           color: rgba(200,169,106,0.5); letter-spacing: 1px; z-index: 4;
         }
 
-        /* gold bottom bar */
         .tf-bar {
           position: absolute; bottom: 0; left: 0; right: 0; height: 2px;
           background: linear-gradient(to right, transparent, ${GOLD}, transparent);
@@ -166,7 +161,6 @@ export default function Transformation() {
         .tf-card:hover .tf-bar,
         .tf-card.active .tf-bar { transform: scaleX(1); }
 
-        /* bottom label on active */
         .tf-label {
           position: absolute; bottom: 16px; left: 20px;
           font-size: 9px; font-weight: 600; letter-spacing: 3px;
@@ -183,7 +177,6 @@ export default function Transformation() {
       <section ref={sectionRef} className="tf-section">
         <div className="tf-inner">
 
-          {/* Heading */}
           <div className={`tf-head ${visible ? "visible" : "hidden"}`}>
             <div className="tf-eyebrow">Before &amp; After</div>
             <h2 className="tf-title">See The <em>Transformation</em></h2>
@@ -193,7 +186,6 @@ export default function Transformation() {
             </div>
           </div>
 
-          {/* Grid */}
           <div className="tf-grid">
             {images.map((img, index) => (
               <div

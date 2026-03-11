@@ -40,7 +40,6 @@ export default function Gallery() {
           font-family: 'Raleway', sans-serif;
         }
 
-        /* gold grid */
         .gal-section::before {
           content: ''; position: absolute; inset: 0;
           background-image:
@@ -52,7 +51,6 @@ export default function Gallery() {
           pointer-events: none;
         }
 
-        /* top center glow */
         .gal-section::after {
           content: ''; position: absolute;
           top: 0; left: 50%; transform: translateX(-50%);
@@ -63,7 +61,6 @@ export default function Gallery() {
 
         .gal-inner { max-width: 1100px; margin: 0 auto; position: relative; z-index: 1; }
 
-        /* heading */
         .gal-head {
           text-align: center; margin-bottom: 64px;
           transition: opacity .7s ease, transform .7s ease;
@@ -95,7 +92,6 @@ export default function Gallery() {
         .gal-dl.rev { background: linear-gradient(to left, transparent, ${GOLD}); }
         .gal-dd { width: 5px; height: 5px; background: ${GOLD}; transform: rotate(45deg); flex-shrink: 0; }
 
-        /* grid */
         .gal-grid {
           display: grid;
           grid-template-columns: 1fr;
@@ -103,7 +99,6 @@ export default function Gallery() {
         }
         @media (min-width: 640px) { .gal-grid { grid-template-columns: 1fr 1fr; } }
 
-        /* card */
         .gal-card {
           position: relative; cursor: pointer;
           border: 1px solid rgba(200,169,106,0.1);
@@ -113,7 +108,6 @@ export default function Gallery() {
         }
         .gal-card.active { transform: translateY(-6px); border-color: rgba(200,169,106,0.45); }
 
-        /* gold corner brackets */
         .gal-card::before {
           content: ''; position: absolute;
           top: 10px; left: 10px;
@@ -135,7 +129,6 @@ export default function Gallery() {
         .gal-card.active::before,
         .gal-card.active::after { opacity: 1; }
 
-        /* image */
         .gal-img {
           width: 100%; height: 280px;
           object-fit: cover; display: block;
@@ -148,7 +141,6 @@ export default function Gallery() {
           filter: grayscale(0%) brightness(1);
         }
 
-        /* overlay on inactive */
         .gal-overlay {
           position: absolute; inset: 0;
           background: rgba(7,7,13,0.35);
@@ -158,7 +150,6 @@ export default function Gallery() {
         .gal-card:hover .gal-overlay,
         .gal-card.active .gal-overlay { opacity: 0; }
 
-        /* card index label */
         .gal-num {
           position: absolute; top: 14px; right: 14px;
           font-family: 'Playfair Display', serif;
@@ -167,7 +158,6 @@ export default function Gallery() {
           letter-spacing: 1px; z-index: 4;
         }
 
-        /* bottom gold bar on active */
         .gal-bar {
           position: absolute; bottom: 0; left: 0; right: 0;
           height: 2px;
@@ -179,7 +169,6 @@ export default function Gallery() {
         .gal-card:hover .gal-bar,
         .gal-card.active .gal-bar { transform: scaleX(1); }
 
-        /* entrance animation */
         .gal-card {
           opacity: 0; transform: translateY(40px);
           transition: opacity .7s ease, transform .7s ease, border-color .35s;
@@ -191,7 +180,6 @@ export default function Gallery() {
       <section ref={sectionRef} className="gal-section">
         <div className="gal-inner">
 
-          {/* Heading */}
           <div className={`gal-head ${visible ? "visible" : "hidden"}`}>
             <div className="gal-eyebrow">Our Work</div>
             <h2 className="gal-title">Smiles That <em>Say It All</em></h2>
@@ -203,7 +191,6 @@ export default function Gallery() {
             </div>
           </div>
 
-          {/* Grid */}
           <div className="gal-grid">
             {images.map((img, index) => (
               <div

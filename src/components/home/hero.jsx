@@ -25,7 +25,6 @@ const slides = [
   },
 ];
 
-// ─── Inline styles (no Tailwind dependency for luxury tokens) ───────────────
 const S = {
   section: {
     position: "relative",
@@ -36,7 +35,6 @@ const S = {
     fontFamily: "'Raleway', sans-serif",
   },
 
-  // Dark gradient vignette over each slide image
   vignette: {
     position: "absolute",
     inset: 0,
@@ -49,7 +47,6 @@ const S = {
     pointerEvents: "none",
   },
 
-  // Subtle gold grid overlay
   grid: {
     position: "absolute",
     inset: 0,
@@ -64,7 +61,6 @@ const S = {
     WebkitMaskImage: "radial-gradient(ellipse 100% 100% at center, black 20%, transparent 100%)",
   },
 
-  // Grain texture
   grain: {
     position: "absolute",
     inset: 0,
@@ -85,7 +81,6 @@ const S = {
     zIndex: 1,
   },
 
-  // ── Content panel
   content: {
     position: "absolute",
     inset: 0,
@@ -182,7 +177,6 @@ const S = {
     padding: 0,
   },
 
-  // ── Slide counter (top-right)
   counter: {
     position: "absolute",
     top: "50%",
@@ -214,7 +208,6 @@ const S = {
     lineHeight: 1,
   },
 
-  // ── Vertical nav arrows (left / right)
   navBtn: (side) => ({
     position: "absolute",
     [side]: "3vw",
@@ -232,7 +225,6 @@ const S = {
     transition: "border-color .3s, background .3s",
   }),
 
-  // ── Dot indicators
   dotsWrap: {
     position: "absolute",
     bottom: "52px",
@@ -253,7 +245,6 @@ const S = {
     padding: 0,
   }),
 
-  // ── Progress bar (bottom)
   progressBar: {
     position: "absolute",
     bottom: 0,
@@ -264,7 +255,6 @@ const S = {
     transformOrigin: "left",
   },
 
-  // ── Slide label (bottom-right corner)
   slideLabel: {
     position: "absolute",
     bottom: "48px",
@@ -288,7 +278,6 @@ const S = {
     fontFamily: "'Raleway', sans-serif",
   },
 
-  // ── Decorative vertical line (left edge accent)
   leftAccentLine: {
     position: "absolute",
     left: "3.5vw",
@@ -319,7 +308,6 @@ export default function Hero() {
     if (animating || index === current) return;
     setAnimating(true);
 
-    // Animate content out
     gsap.to(contentRef.current, {
       opacity: 0, y: 24, duration: 0.35, ease: "power2.in",
       onComplete: () => {
@@ -329,7 +317,6 @@ export default function Hero() {
     });
   };
 
-  // Animate content in whenever slide changes
   useEffect(() => {
     if (!contentRef.current) return;
     gsap.fromTo(
@@ -339,7 +326,6 @@ export default function Hero() {
     );
   }, [current]);
 
-  // Entrance animations
   useEffect(() => {
     const ctx = gsap.context(() => {
       gsap.fromTo(sectionRef.current,
@@ -354,7 +340,6 @@ export default function Hero() {
     return () => ctx.revert();
   }, []);
 
-  // Auto-advance + progress bar
   useEffect(() => {
     setProgress(0);
     const start = Date.now();
@@ -379,20 +364,17 @@ export default function Hero() {
 
   const slide = slides[current];
 
-  // Hover states
   const [hoverPrimary, setHoverPrimary] = useState(false);
   const [hoverGhost, setHoverGhost]     = useState(false);
 
   return (
     <>
-      {/* Google Fonts */}
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,300;0,400;1,300;1,400&family=Raleway:wght@200;300;400;500;600&display=swap');
       `}</style>
 
       <section ref={sectionRef} style={S.section} aria-label="Hero Slider">
 
-        {/* ── Background images ── */}
         {slides.map((s, i) => (
           <img
             key={i}
@@ -402,15 +384,12 @@ export default function Hero() {
           />
         ))}
 
-        {/* ── Overlays ── */}
         <div style={S.vignette} />
         <div style={S.grid} />
         <div style={S.grain} />
 
-        {/* ── Left decorative line ── */}
         <div style={S.leftAccentLine} />
 
-        {/* ── Main content ── */}
         <div style={S.content} ref={contentRef}>
 
           <div style={S.eyebrow}>
@@ -453,14 +432,12 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* ── Slide counter ── */}
         <div ref={counterRef} style={S.counter}>
           <span style={S.counterCurrent}>0{current + 1}</span>
           <div style={S.counterDivider} />
           <span style={S.counterTotal}>0{slides.length}</span>
         </div>
 
-        {/* ── Dots ── */}
         <div ref={dotsRef} style={S.dotsWrap}>
           {slides.map((_, i) => (
             <button
@@ -472,13 +449,11 @@ export default function Hero() {
           ))}
         </div>
 
-        {/* ── Slide label bottom-right ── */}
         <div ref={labelRef} style={S.slideLabel}>
           <div style={S.slideLabelNum}>Slide {String(current + 1).padStart(2, "0")}</div>
           <div style={S.slideLabelText}>{slide.eyebrow}</div>
         </div>
 
-        {/* ── Progress bar ── */}
         <div
           ref={progressRef}
           style={{ ...S.progressBar, width: `${progress}%` }}
